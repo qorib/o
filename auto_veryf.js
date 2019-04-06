@@ -240,6 +240,16 @@ const functionGetLocation = domain =>
             }
           }
         }
+      } else {
+        console.log(
+          "[" +
+            " " +
+            moment().format("HH:mm:ss") +
+            " " +
+            "]" +
+            " " +
+            `Line Kosong ~`
+        );
       }
     });
   });
