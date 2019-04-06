@@ -132,34 +132,35 @@ const functionGetLocation = domain =>
 
         await delay(DelaY);
         const veryf = await functionVerification(resGexEm[0], resGex[1]);
+        console.log(veryf);
 
         // const msg = JSON.parse(veryf).error.status;
 
-        if (JSON.parse(veryf).hasOwnProperty("error")) {
-          console.log(
-            "[" +
-              " " +
-              moment().format("HH:mm:ss") +
-              " " +
-              "]" +
-              " " +
-              `Email : ${resGexEm[0]}` +
-              " " +
-              "Token Expired"
-          );
-        } else {
-          console.log(
-            "[" +
-              " " +
-              moment().format("HH:mm:ss") +
-              " " +
-              "]" +
-              " " +
-              `Email : ${resGexEm[0]}` +
-              " " +
-              "Veryf Sukses"
-          );
-        }
+        // if (JSON.parse(veryf).hasOwnProperty("error")) {
+        //   console.log(
+        //     "[" +
+        //       " " +
+        //       moment().format("HH:mm:ss") +
+        //       " " +
+        //       "]" +
+        //       " " +
+        //       `Email : ${resGexEm[0]}` +
+        //       " " +
+        //       "Token Expired"
+        //   );
+        // } else {
+        //   console.log(
+        //     "[" +
+        //       " " +
+        //       moment().format("HH:mm:ss") +
+        //       " " +
+        //       "]" +
+        //       " " +
+        //       `Email : ${resGexEm[0]}` +
+        //       " " +
+        //       "Veryf Sukses"
+        //   );
+        // }
       } else {
         const decodeURL = await decodeURIComponent(array[ury]);
 
@@ -172,33 +173,34 @@ const functionGetLocation = domain =>
 
         await delay(DelaY);
         const veryf = await functionVerification(resGexEm[0], resGex[1]);
+        console.log(veryf);
         // const msg = JSON.parse(veryf).error.status;
 
-        if (JSON.parse(veryf).hasOwnProperty("error")) {
-          console.log(
-            "[" +
-              " " +
-              moment().format("HH:mm:ss") +
-              " " +
-              "]" +
-              " " +
-              `Email : ${resGexEm[0]}` +
-              " " +
-              "Token Expired"
-          );
-        } else {
-          console.log(
-            "[" +
-              " " +
-              moment().format("HH:mm:ss") +
-              " " +
-              "]" +
-              " " +
-              `Email : ${resGexEm}` +
-              " " +
-              "Veryf Sukses"
-          );
-        }
+        // if (JSON.parse(veryf).hasOwnProperty("error")) {
+        //   console.log(
+        //     "[" +
+        //       " " +
+        //       moment().format("HH:mm:ss") +
+        //       " " +
+        //       "]" +
+        //       " " +
+        //       `Email : ${resGexEm[0]}` +
+        //       " " +
+        //       "Token Expired"
+        //   );
+        // } else {
+        //   console.log(
+        //     "[" +
+        //       " " +
+        //       moment().format("HH:mm:ss") +
+        //       " " +
+        //       "]" +
+        //       " " +
+        //       `Email : ${resGexEm}` +
+        //       " " +
+        //       "Veryf Sukses"
+        //   );
+        // }
       }
     }
   });
