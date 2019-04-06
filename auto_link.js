@@ -132,7 +132,7 @@ const functionGetLocation = domain =>
 
         await delay(DelaY);
         const veryf = await functionVerification(resGexEm[0], resGex[1]);
-        console.log("Pendek " + veryf);
+
         // const msg = JSON.parse(veryf).error.status;
 
         if (JSON.parse(veryf).hasOwnProperty("error")) {
@@ -173,7 +173,7 @@ const functionGetLocation = domain =>
         await delay(DelaY);
         const veryf = await functionVerification(resGexEm[0], resGex[1]);
         // const msg = JSON.parse(veryf).error.status;
-        console.log("Panjang " + veryf);
+
         if (JSON.parse(veryf).hasOwnProperty("error")) {
           console.log(
             "[" +
