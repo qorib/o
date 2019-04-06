@@ -20,6 +20,7 @@ const LooP = readline.question("Mau Berapa Banyak ? ");
 const DelaY = readline.question(
   "Mau Berapa Lama (millisecond), semakin lama semakin besar peluang langsung verifikasi : "
 );
+const file = readline.question("Masukan nama file letak domain berada : ");
 
 console.log("");
 console.log("");
@@ -46,7 +47,9 @@ const functionRegister = (email, domain) =>
       }
     })
       .then(res => res.text())
-      .then(json => resolve(json.length))
+      .then(json => {
+        resolve(json.length);
+      })
       .catch(err => reject(err));
   });
 
@@ -218,22 +221,22 @@ const genEmail = length =>
     resolve(text);
   });
 
-const domain = [
-  "payforclick.org",
-  "cloneviptmc1.club",
-  "emailtech.info",
-  "payforpost.info",
-  "alonzo1121.club",
-  "mimpaharpur.ga",
-  "coolmail.ooo",
-  "alliancewe.us",
-  "wpower.info",
-  "besttandberg.com",
-  "titaspaharpur5.ml"
-];
+const domain = [];
 (async () => {
-  try {
-    for (let index = 0; index < LooP; index++) {
+  const dm = await fs.readFile(file, "utf8");
+  const array = await dm
+    .toString()
+    .replace(/\r\n|\r|\n/g, " ")
+    .split(" ");
+
+  const arpush = array.map(ury => {
+    if (ury.length !== 0) {
+      domain.push(ury);
+    }
+  });
+
+  for (let index = 0; index < LooP; index++) {
+    try {
       const item = await domain[(Math.random() * domain.length) | 0];
       const emel = await genEmail(10);
       await delay(10000);
@@ -351,13 +354,15 @@ const domain = [
         console.log(
           "[" +
             " " +
+            "]" +
+            " " +
             moment().format("HH:mm:ss") +
             " " +
-            "Email Sudah Terdaftar"
+            "Email Sudah Terdaftar / Tidak Valid"
         );
         console.log("");
         console.log("");
       }
-    }
-  } catch (e) {}
+    } catch (e) {}
+  }
 })();
