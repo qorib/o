@@ -122,7 +122,7 @@ const functionGetLocation = domain =>
       .split(" ");
 
     for (let ury in array) {
-      if (array[ury].length == 44) {
+      if (array[ury].length < 60) {
         const getLocation = await functionGetLocation(array[ury]);
 
         const regex = await new RegExp(/(?:code)\=([\S\s]*?)\&/);
@@ -132,6 +132,7 @@ const functionGetLocation = domain =>
 
         await delay(DelaY);
         const veryf = await functionVerification(resGexEm[0], resGex[1]);
+        console.log("Pendek " + veryf);
         // const msg = JSON.parse(veryf).error.status;
 
         if (JSON.parse(veryf).hasOwnProperty("error")) {
@@ -172,7 +173,7 @@ const functionGetLocation = domain =>
         await delay(DelaY);
         const veryf = await functionVerification(resGexEm[0], resGex[1]);
         // const msg = JSON.parse(veryf).error.status;
-
+        console.log("Panjang " + veryf);
         if (JSON.parse(veryf).hasOwnProperty("error")) {
           console.log(
             "[" +
@@ -193,7 +194,7 @@ const functionGetLocation = domain =>
               " " +
               "]" +
               " " +
-              `Email : ${resGexEm[0]}` +
+              `Email : ${resGexEm}` +
               " " +
               "Veryf Sukses"
           );
